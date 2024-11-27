@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(0, 166, 207);
+    background-size: cover;
+    min-height: 190vh;
+    overflow-x: hidden;
+}
+.header {
+    position: absolute;
+    top: 2%;
+    left: -10%;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    font-size: 18px;
+}
+.header .logo{
+    font-size: 30px;
+}
+.nav a{
+    position: relative;
+    font-size: 1.1em;
+    color: aqua;
+    text-decoration: none;
+    margin-left: 36px;
+}
+.nav a::after {
+    content: '';
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    background: aqua;
+    border: 5px;
+    transform: scaleX(0);
+    transition: .5s;
+}
+.nav a:hover::after{
+    transform: scaleX(1);
+}
+.social-midia{
+    display: flex;
+    margin-left: 87%;
+    margin-top: 2.9%;
+    gap: 18px;
+}
+.social-midia a{
+    color: #f8f8f8;
+    width: 45px;
+    height: 40px;
+    color: #fff;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.hero-text-box {
+    margin-left: 38%;
+    margin-top: 14%;
+    color: aqua;
+}
+.parallax-bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: cover;
+    background-position: center center;
+    z-index: -1;
+    min-height: 100;
+}
+.hero-text-box h1{
+    font-family: "Cormorant SC", serif;
+    font-size: 60px;
+    margin-left: 1.5%;
+    margin-top: 6%;
+}
+.hero-text-box h2{
+    font-family: "Cormorant SC", serif;
+    font-size: 140px;
+    margin-left: -11%;
+    margin-top: -2%;
+    text-transform: uppercase;
+}
+.hero-text-box h3{
+    Text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+    font-size: 40px;
+    margin-left: 2%;
+    margin-top: -3%;
+}
+.hero-text-box .btn-a{
+    margin-left: 9%;
+}
+.aleatorio{
+   margin-top: 12%;
+}
+.btn:link,
+.btn:visited {
+  display:inline-block;
+  margin-right:10px;
+  text-decoration:none;
+  color: aqua;
+  padding:10px 30px;
+  font-weight:300;
+  border-radius: 200px;
+  margin-top: 2%;
+}
+
+.btn-a:link,
+.btn-a:visited {
+  border:1px solid aqua;
+  background-color: rgba(0, 255, 255, 0.068);
+}
+.btn-b:link,
+.btn-b:visited {
+  border:1px solid aqua;
+  color:aqua;
+}
+
+.btn-b:hover,
+.btn-b:active {
+  border:1px solid aqua;
+  color:aqua;
+  background-color:aqua;
+  transition:background-color 1s, border 1s, color 1s;
+}
+
+.btn-a:hover,
+.btn-a:active {
+  color: #313131;
+  background-color: aqua;
+  transition:background-color 1s, border 1s, color 1s;
+}
