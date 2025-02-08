@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --azul-tema: hsl(197, 100%, 93%);
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+body {
+  background: #064469;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.header {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* Reduzir a largura pode ajudar na centralização */
+  padding: 20px 0;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  font-size: 18px;
+  font-family: "Cormorant SC";
+}
+
+.logo img {
+  width: 10%; /* Tamanho maior do logotipo */
+  height: auto;
+  position: absolute;
+  top: -50%;
+  left: 1%;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav a {
+  position: relative;
+  font-size: 1.1em;
+  color: var(--azul-tema);
+  text-decoration: none;
+  margin-left: 36px;
+}
+.nav a::after {
+  content: "";
+  border-radius: 20px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  background: var(--azul-tema);
+  border: 5px;
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+.social-midia {
+  display: flex;
+  margin-left: 87%;
+  margin-top: 2.9%;
+  gap: 18px;
+}
+.social-midia a {
+  color: var(--azul-tema);
+  width: 45px;
+  height: 40px;
+  color: var(--azul-tema);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0s;
+  border-radius: 50px;
+  background: none;
+}
+
+.card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 50px;
+  line-height: 1.8;
+}
+
+.card:hover img {
+  filter: blur(2px);
+}
+
+.card:hover .info {
+  opacity: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --azul-tema: hsl(197, 100%, 93%);
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+body {
+  background: #064469;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.header {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* Reduzir a largura pode ajudar na centralização */
+  padding: 20px 0;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+  font-size: 18px;
+  font-family: "Cormorant SC";
+}
+
+.logo img {
+  width: 10%; /* Tamanho maior do logotipo */
+  height: auto;
+  position: absolute;
+  top: -50%;
+  left: 1%;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav a {
+  position: relative;
+  font-size: 1.1em;
+  color: var(--azul-tema);
+  text-decoration: none;
+  margin-left: 36px;
+}
+.nav a::after {
+  content: "";
+  border-radius: 20px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  background: var(--azul-tema);
+  border: 5px;
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+.social-midia {
+  display: flex;
+  margin-left: 87%;
+  margin-top: 2.9%;
+  gap: 18px;
+}
+.social-midia a {
+  color: var(--azul-tema);
+  width: 45px;
+  height: 40px;
+  color: var(--azul-tema);
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+  border-radius: 50px;
+  background: none;
+}
+
+.card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 50px;
+  line-height: 1.8;
+}
+
+.card:hover img {
+  filter: blur(2px);
+}
+
+.card:hover .info {
+  opacity: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Estiliza o carrossel */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Faixa onde os cards vão deslizar */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cada card */
+.card {
+  min-width: 250px;
+  height: 250px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Botões de navegação */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10; /* Garante que fiquem na frente */
+}
+
+/* Posicionamento dos botões */
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Efeito hover nos botões */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estiliza o carrossel */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Faixa onde os cards vão deslizar */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Cada card */
+.card {
+  min-width: 250px;
+  height: 250px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Botões de navegação */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+}
+
+/* Posicionamento dos botões */
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Efeito hover nos botões */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
