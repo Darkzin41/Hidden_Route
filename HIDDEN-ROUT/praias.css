@@ -12,31 +12,31 @@
   box-sizing: border-box;
   border: none;
 }
-body {
-  background-color: cornflowerblue;
-  background-size: cover;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
 
+body{
+    background: #064469;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 .header {
-  position: absolute;
-  top: -1%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%; /* Reduzir a largura pode ajudar na centralização */
-  padding: 20px 0;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 99;
-  font-size: 18px;
-  font-family: "Cormorant SC";
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Reduzir a largura pode ajudar na centralização */
+    padding: 20px 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    font-size: 18px;
+    font-family: "Cormorant SC";
 }
 
 .header_nav_praias {
-  background-image: url(IMG/backgroundpraias.png);
+  background-image: url(IMG/Group\ 2.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,54 +46,58 @@ body {
   flex-direction: column;
 }
 
-.logo {
-  font-size: 30px;
-  color: white;
+.logo img {
+    width: 10%; /* Tamanho maior do logotipo */
+    height: auto;
+    position: absolute;
+    top: -50%;
+    left: 1%;
 }
+
 
 .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.nav a {
-  position: relative;
-  font-size: 1.1em;
-  color: var(--azul-tema);
-  text-decoration: none;
-  margin-left: 36px;
+.nav a{
+    position: relative;
+    font-size: 1.1em;
+    color: var(--azul-tema);
+    text-decoration: none;
+    margin-left: 36px;
 }
 .nav a::after {
-  content: "";
-  border-radius: 20px;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: -6px;
-  height: 3px;
-  background: var(--azul-tema);
-  border: 5px;
-  transform: scaleX(0);
-  transition: 0.5s;
+    content: '';
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    background: var(--azul-tema);
+    border: 5px;
+    transform: scaleX(0);
+    transition: 0.5s;
 }
-.nav a:hover::after {
-  transform: scaleX(1);
+.nav a:hover::after{
+    transform: scaleX(1);
 }
-.social-midia {
-  display: flex;
-  margin-left: 87%;
-  margin-top: 2.9%;
-  gap: 18px;
+.social-midia{
+    display: flex;
+    margin-left: 87%;
+    margin-top: 2.9%;
+    gap: 18px;
 }
-.social-midia a {
-  color: var(--azul-tema);
-  width: 45px;
-  height: 40px;
-  color: var(--azul-tema);
-  font-size: 1.25rem;
-  text-decoration: none;
+.social-midia a{
+    color: var(--azul-tema);
+    width: 45px;
+    height: 40px;
+    color: var(--azul-tema);
+    font-size: 1.25rem;
+    text-decoration: none;
 }
 .hero-text-box {
   display: flex;
@@ -105,7 +109,7 @@ body {
 .hero-text-box h1 {
   font-family: "Cormorant SC";
   font-weight: 100;
-  font-size: 80px;
+  font-size: 170px;
   margin-top: 5%;
 }
 .hero-text-box h2 {
@@ -113,25 +117,25 @@ body {
   font-family: "Raleway";
   font-size: 30px;
 }
-.search-input {
+/* .search-input {
   color: #ffffff;
   width: 550px;
-  padding: 10px 4px 4px 40px; /* Espaço à direita para o ícone */
-  border: 2px solid #ffffff;
+  padding: 10px 4px 4px 40px; Espaço à direita para o ícone */
+  /* border: 2px solid #ffffff;
   border-radius: 20px;
   margin-top: 40px;
-  /* background: url("search.png") no-repeat left 10px center; */
+  background: url("search.png") no-repeat left 10px center;
   background-color: transparent;
   background-size: 20px;
   transition: all 0.3s ease-in-out;
   outline: none;
-}
+} */
 
-.search-input:hover {
+/* .search-input:hover {
   border-color: #ffffff;
   background-color: #0000009f;
-}
-
+} */
+/* 
 .search-box {
   position: relative;
 }
@@ -143,7 +147,7 @@ body {
   transform: translateY(-50%);
   color: #ffffff;
   cursor: pointer;
-}
+} */
 
 .parallax-bg {
   position: absolute;
@@ -172,6 +176,7 @@ body {
   font-size: 15px;
 }
 
+
 #pontaverde1 {
   width: 350px;
   margin-left: 20%;
@@ -185,6 +190,8 @@ body {
   width: 500px;
   margin-bottom: 10px;
 }
+
+
 .caixa h3 {
   font-weight: 400;
   margin-bottom: 10px;
@@ -207,4 +214,155 @@ body {
   background-color: #072d44;
   transition: background-color 1s, border 1s, color 1s;
   border: 1px solid #d0d7e154;
+}
+
+.serviços_da_praia{
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  background-color: #D0D7E1;
+  font-family: "Raleway";
+  color: #072D44;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.caixa_serviços{
+  width: 500px;
+  margin-bottom: 10px;
+  
+  
+}
+
+.caixa_serviços h3 {
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 40px;
+  color: #072D44;
+}
+.caixa_serviços h4 {
+  font-weight:600;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #072D44;
+}
+.caixa_serviços p{
+  font-weight: 500;
+  opacity: 90%;
+}
+
+.botao_sbm2 {
+  border-radius: 20px;
+  background-color: #5790ab;
+  padding: 12px;
+  color: #d0d7e1;
+  border: 1px solid #5790ab;
+  text-decoration: none;
+  font-family: "Raleway";
+  font-weight: 500;
+}
+
+.botao_sbm2:hover {
+  background-color: #072d44;
+  transition: background-color 1s, border 1s, color 1s;
+  border: 1px solid #d0d7e154;
+}
+
+/* .imagem_praia{
+  width: 200px;
+  height: 200px;
+} */
+
+.container {
+  display: flex;
+  height: 70vh;
+  font-family: "Raleway";
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 50px;
+  color: #D0D7E1;
+  font-weight: 500;
+}
+
+.avaliacao_praia,
+.notas_avaliacoes {
+  width: 45%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#nota {
+  margin-top: 5%;
+  font-weight: 200;
+  font-size: 100px;
+  margin-bottom: -20%;
+}
+
+#img_aval {
+  margin-left: 20px;
+}
+
+.star {
+  font-size: 50px;
+  cursor: pointer;
+  color: #424344;
+  transition: color 0.3s;
+}
+
+.star:hover,
+.star.hovered {
+  color: gold;
+}
+.star:active {
+  color: gold;
+}
+
+#review {
+  color: #D0D7E1;
+  text-decoration: underline;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+#review:hover {
+  color: #5790ab;
+}
+
+.hidden {
+  display: none;
+}
+
+#reviewBox {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+#reviewText {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  resize: none;
+}
+
+#submitReview {
+  background-color: #5790ab;
+  color: #d0d7e1;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#submitReview:hover {
+  background-color: #072d44;
 }
