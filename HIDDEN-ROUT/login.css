@@ -73,6 +73,58 @@ body {
     transform: scaleX(1);
 }
 
+.menu-container {
+      position: relative;
+      display: inline-block;
+    }
+
+.menu-button {
+
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 21px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+.submenu {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 15px;
+      margin-top: 3px;
+      margin-left: 3px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      min-width: 250px;
+      z-index: 999;
+    }
+
+.menu-container:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+.submenu a {
+      padding: 10px 16px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: background-color 0.2s ease;
+    }
+
+.submenu a:hover {
+      background-color: #e3f2fd;
+    }
+
 .social-midia {
     display: flex;
     position: absolute;
