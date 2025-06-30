@@ -17,6 +17,7 @@ body {
   background-size: cover;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #d0d7e1;
 }
 .header {
   position: absolute;
@@ -86,65 +87,108 @@ body {
   font-size: 1.25rem;
   text-decoration: none;
 }
-.parallax-bg{
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    box-sizing: cover;
-    background-position: center center;
-    z-index: -1;
-    min-height: 100;
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: cover;
+  background-position: center center;
+  z-index: -1;
+  min-height: 100;
 }
 .parallax-bg::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(3, 3, 61, 0.603); /* Preto com 50% de opacidade */
-      z-index: 1;
-    }
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
 .text {
-  margin-top: 0%;
-  margin-left: 10%;
+  margin-top: 15%;
+  margin-left: 50%;
   font-family: Cormorant SC;
   color: var(--azul-tema);
 }
-.text h1{
-  font-size: 450%;
+.text h1 {
+  font-size: 6rem;
   margin-top: 15%;
 }
-.text h2{
-  margin-top: -1%;
+.text h2 {
+  margin-top: -3%;
   margin-left: 0.5%;
-  font-size: 210%;
+  font-size: 3rem;
+  font-weight: 100;
 }
 .who {
-  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
   margin-top: 30%;
 }
-.who h3{
+
+.who h3 {
   font-family: Raleway;
-  font-size: 170%;
+  font-size: 2rem;
 }
-.who p{
+.who p {
   margin-top: 1.25%;
-  font-size: 120%;
+  font-size: 1.5rem;
   font-family: Poppins;
 }
-.history{
+#team {
+  background-color: #ffffff;
+  width: 500px;
+  height: 400px;
+  border-radius: 50px;
+  position: relative;
+  margin-top: -13%;
+  margin-left: 55%;
+}
+.points {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10%;
+  background-color: #072d44;
+  height: 70dvh;
+  color: #ffffff;
+}
+.caixas_points {
+  background-color: #064469;
+  border-radius: 20px;
+  padding: 20px;
+  height: 20rem;
+  width: 25rem;
+}
+li {
+  font-family: poppins;
+  margin-top: 8%;
+}
+p {
+  font-family: poppins;
+  margin-top: 5%;
+}
+#diferent,
+#values,
+#vision {
+  font-family: Raleway;
+  font-weight: 400;
+  margin-top: -17%;
+}
+.history {
   margin-left: 60%;
   margin-top: 30%;
 }
-.history h3{
+.history h3 {
   font-family: Raleway;
   font-size: 170%;
 }
-.history p{
-   margin-top: 1.6%;
+.history p {
+  margin-top: 1.6%;
   font-size: 120%;
   font-family: Poppins;
 }
