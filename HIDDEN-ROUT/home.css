@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -13,7 +14,7 @@
     border: none;
 }
 body{
-    background: #064469;
+    background-color: #D0D7E1;
     background-size: cover;
     min-height: 100vh;
     overflow-x: hidden;
@@ -126,19 +127,130 @@ body{
 .hero-text-box .btn-a{
     margin-left: 9%;
 }
-.vetor{
-    margin-top: 7%;
+
+
+
+.menu-container {
+      position: relative;
+      display: inline-block;
+    }
+
+.menu-button {
+
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 21px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+.submenu {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 15px;
+      margin-top: 3px;
+      margin-left: 3px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      min-width: 250px;
+      z-index: 999;
+    }
+
+.menu-container:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+.submenu a {
+      padding: 10px 16px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: background-color 0.2s ease;
+    }
+
+.submenu a:hover {
+      background-color: #e3f2fd;
+    }
+
+    .social-midia{
+    display: flex;
+    margin-left: 87%;
+    margin-top: 2.9%;
+    gap: 18px;
 }
+.social-midia a{
+    color: var(--azul-tema);
+    width: 45px;
+    height: 40px;
+    color: var(--azul-tema);
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+.hero-text-box {
+    margin-left: 38%;
+    margin-top: 14%;
+    color: var(--azul-tema);
+}
+.parallax-bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: cover;
+    background-position: center center;
+    z-index: -1;
+    min-height: 100;
+}
+.hero-text-box h1{
+    font-family: "Cormorant SC";
+    font-size: 60px;
+    margin-left: 4%;
+    margin-top: 6%;
+}
+.hero-text-box h2{
+    font-family: "Cormorant SC";
+    font-size: 140px;
+    margin-left: -7%;
+    margin-top: -2%;
+    text-transform: uppercase;
+}
+.hero-text-box h3{
+    Text-transform: uppercase;
+    font-family: "Cormorant SC";
+    font-size: 40px;
+    margin-left: 5%;
+    margin-top: -3%;
+}
+.hero-text-box .btn-a{
+    margin-left: 9%;
+}
+
+
+.vetor{
+    margin-top: 8%;
+}
+
 .btn:link,
 .btn:visited {
     display:inline-block;
-    margin-right:10px;
     text-decoration: none;
     color: var(--azul-tema);
     padding:10px 30px;
     font-weight:600;
     border-radius: 200px;
     margin-top: 2%;
+    margin-left: 13%;
     font-family: "Cormorant SC", helvetica, serif;
     text-transform: uppercase;
 }
@@ -171,20 +283,20 @@ body{
 }
 
 .text {
-    position: relative;top: 30%;
+    margin-top: 8%;
     margin-left: 8%
 }
 .h1{
     font-size: 60px;
     line-height: 1.0;
     font-weight: normal;
-    color:#5790AB;
+    color:#267175;
     text-transform: uppercase;
     font-family: "Raleway";
 }
 
 p{
-    color: #dcf5ff;
+    color: #072D44;
     font-size: 19.04px;
     margin-top: 2%;
 }
@@ -218,14 +330,22 @@ p{
     background-color: #072D44;
     transition:background-color 1s, border 1s, color 1s;
 }
+.elente{
+  position: absolute;
+    top: 118%;
+    left: 47%;
+    z-index: -1; /* Menor valor = fica atrás */
+}
 
 .IMG{
+    background-size: cover;
     display: flex;
     gap: 43px; 
     justify-content: center;
-    margin-top: -24%;
+    margin-top: -18%;
     margin-left: 30%;
     z-index: 1;
+    position: relative;
 }
 .IMG div {
     text-align: center;
@@ -238,25 +358,31 @@ p{
 .IMG p{
     margin-top: -28%;
     font-family: "Raleway";
+    color: #D0D7E1;
+}
+
+.vecto{
+    position: absolute;top: 154%;
 }
 .flex-item{
-    background-color: #267175;
+    background-color: #072D44;
     width: 1920px;
     height: 700px;
-    margin-top: 16%;
+    margin-top: 7%;
 }
 
 .time{
-    background-color: #ffffff;
-    width: 400px;
+    background: url("imagem/equipe.jpg");
+    background-size: cover;
+    width: 400px;   
     height: 400px;
     border-radius: 20px;
     position: relative;
-    margin-top: -40%;
+    margin-top: -26%;
     margin-left: 8%;
 }
 .text-time{
-    margin-top: -25%;
+    margin-top: -21%;
     margin-left: 40%;
 }
 .text-time h1{
