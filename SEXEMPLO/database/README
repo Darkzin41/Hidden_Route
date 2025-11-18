@@ -1,0 +1,15 @@
+docker build -t mysql_aula .
+docker run -d -p 3306:3306 --name mysql_aula mysql_aula
+
+-- CREATE DATABASE myapp;
+USE mydatabase;
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    login VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
+FLUSH PRIVILEGES;
