@@ -1,0 +1,15 @@
+{
+  "name": "sexemplo-api",
+  "version": "1.0.0",
+  "description": "projeto exemplo para api de banco de dados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mysql"
+  ],
+  "author": "Karoline Leão",
+  "license": "ISC"
+}
