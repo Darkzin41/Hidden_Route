@@ -1,0 +1,4 @@
+name: Hidden Route CodeQL
+
+paths-ignore:
+  - "legacy/**"

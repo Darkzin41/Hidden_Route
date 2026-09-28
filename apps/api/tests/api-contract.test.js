@@ -190,6 +190,22 @@ describe("autenticação e administração", () => {
     expect(summary.body.data.pendingReviews).toBe(1);
   });
 
+  it("limita consultas repetidas à sessão administrativa", async () => {
+    const agent = request.agent(app);
+    await agent.post("/api/auth/login").send({
+      email: "admin@hiddenroute.local",
+      password: "test-password",
+    });
+
+    let response;
+    for (let attempt = 0; attempt < 121; attempt += 1) {
+      response = await agent.get("/api/auth/me");
+    }
+
+    expect(response.status).toBe(429);
+    expect(response.body.error.code).toBe("RATE_LIMITED");
+  });
+
   it("retorna credenciais inválidas sem revelar qual campo falhou", async () => {
     dependencies.passwordService.compare.mockResolvedValue(false);
     const response = await request(app).post("/api/auth/login").send({

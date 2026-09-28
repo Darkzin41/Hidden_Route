@@ -2,7 +2,7 @@
 id: catalogo-hidden-route
 contract_status: confirmed
 implementation_status: verified
-last_verified: 2026-09-27
+last_verified: 2026-09-28
 last_verified_ref: github-main
 ---
 

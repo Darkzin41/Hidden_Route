@@ -1,6 +1,6 @@
 # Sistema implementado
 
-**Última verificação:** 2026-09-27
+**Última verificação:** 2026-09-28
 **Referência:** branch `main` do repositório oficial
 
 ## Finalidade e unidades executáveis
@@ -31,11 +31,11 @@ O Hidden Route é um catálogo local persistente para praias pouco conhecidas de
 
 O schema versionado contém `admins`, `beaches`, `beach_images`, `partners`, `reviews`, `contact_messages` e `schema_migrations`. Consultas são parametrizadas; entradas usam Zod; senhas usam bcrypt; a API aplica Helmet, rate limiting e envelopes JSON uniformes. O health check valida uma consulta real ao MySQL.
 
-O Compose limita o MySQL a `127.0.0.1` e exige as senhas do `.env`. URLs expostas ao público aceitam apenas HTTP(S). O logger redige cookies e autorização recebidos, além de `Set-Cookie` enviado. O `.env.example` contém somente chaves e valores não sensíveis; segredos permanecem vazios até a configuração local.
+O Compose limita o MySQL a `127.0.0.1` e exige as senhas do `.env`. URLs expostas ao público aceitam apenas HTTP(S). Login e consulta de sessão administrativa possuem limites independentes; respostas 429 seguem o envelope de erros da API. O logger redige cookies e autorização recebidos, além de `Set-Cookie` enviado. O `.env.example` contém somente chaves e valores não sensíveis; segredos permanecem vazios até a configuração local.
 
 ## Versionamento e integração contínua
 
-O repositório oficial é `https://github.com/Darkzin41/Hidden_Route`. GitHub Actions executa o gate raiz e o Playwright contra MySQL isolado; CodeQL analisa JavaScript e TypeScript; Dependabot acompanha dependências npm e ações.
+O repositório oficial é `https://github.com/Darkzin41/Hidden_Route`. GitHub Actions executa o gate raiz e o Playwright contra MySQL isolado; CodeQL analisa JavaScript e TypeScript ativos, excluindo apenas `legacy/**`; Dependabot acompanha dependências npm e ações. Secret Scanning, Push Protection e atualizações de segurança do Dependabot estão habilitados no repositório.
 
 ## Execução
 

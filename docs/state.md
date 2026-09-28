@@ -1,6 +1,6 @@
 # Estado local
 
-**Última atualização:** 2026-09-27
+**Última atualização:** 2026-09-28
 
 - A modernização do Hidden Route está implementada no workspace npm local.
 - O legado está preservado sem alterações em `legacy/`.
@@ -11,6 +11,8 @@
 - As imagens reaproveitadas foram convertidas para WebP responsivo; uploads locais são processados pelo Sharp.
 - O repositório oficial é `https://github.com/Darkzin41/Hidden_Route`, no branch `main`.
 - CI, Playwright, CodeQL e Dependabot verificam o código; não existe deploy da aplicação.
+- Secret Scanning, Push Protection e atualizações de segurança do Dependabot estão habilitados no GitHub.
+- O CodeQL analisa o código ativo e exclui somente `legacy/**`, preservado como referência não executável.
 - O MySQL aceita conexões publicadas somente em `127.0.0.1` e exige senhas locais.
 
 ## Retomada rápida

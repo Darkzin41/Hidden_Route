@@ -63,6 +63,28 @@ export function createAuthRouter({
     limit: 20,
     standardHeaders: true,
     legacyHeaders: false,
+    handler: (_req, _res, next) =>
+      next(
+        new AppError(
+          429,
+          "RATE_LIMITED",
+          "Muitas tentativas de acesso. Aguarde alguns minutos.",
+        ),
+      ),
+  });
+  const sessionLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 120,
+    standardHeaders: true,
+    legacyHeaders: false,
+    handler: (_req, _res, next) =>
+      next(
+        new AppError(
+          429,
+          "RATE_LIMITED",
+          "Muitas consultas de sessão. Aguarde alguns minutos.",
+        ),
+      ),
   });
 
   router.post(
@@ -94,15 +116,20 @@ export function createAuthRouter({
     }),
   );
 
-  router.get("/me", createRequireAdmin(tokenService), (req, res) => {
-    res.json({
-      data: {
-        id: Number(req.admin.sub),
-        name: req.admin.name,
-        email: req.admin.email,
-      },
-    });
-  });
+  router.get(
+    "/me",
+    sessionLimiter,
+    createRequireAdmin(tokenService),
+    (req, res) => {
+      res.json({
+        data: {
+          id: Number(req.admin.sub),
+          name: req.admin.name,
+          email: req.admin.email,
+        },
+      });
+    },
+  );
 
   router.post("/logout", (_req, res) => {
     res.clearCookie(SESSION_COOKIE, {

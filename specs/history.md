@@ -19,3 +19,10 @@
 - O workspace foi preparado para substituir o arquivo ZIP do repositório oficial por código versionado e organizado.
 - O MySQL foi restrito ao loopback, segredos ficaram fora dos arquivos versionados e o legado foi saneado para consulta pública.
 - CI, Playwright, CodeQL e Dependabot foram adicionados como gates remotos, sem deploy da aplicação.
+
+## 2026-09-28 — publicação verificada no GitHub
+
+- O workspace organizado substituiu o ZIP na `main` do repositório oficial sem versionar ambiente, credenciais, uploads ou artefatos locais.
+- CI, Playwright e CodeQL foram executados com sucesso contra o commit publicado.
+- Alertas iniciais do CodeQL resultaram em rate limiting adicional para a sessão administrativa e na exclusão explícita do legado não executável.
+- Secret Scanning, Push Protection e atualizações de segurança do Dependabot foram habilitados; não havia alertas abertos de segredos ou dependências.

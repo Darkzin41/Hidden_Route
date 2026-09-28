@@ -17,13 +17,17 @@ credenciais, uploads ou dados locais e manter os gates de qualidade no GitHub.
 O MySQL fica limitado a `127.0.0.1` e exige senhas no `.env`; links públicos
 aceitam apenas HTTP(S); cookies de sessão são redigidos nos logs; exemplos
 legados não carregam credenciais fixas nem SQL interpolado. CI, Playwright,
-CodeQL e Dependabot verificam o repositório.
+CodeQL e Dependabot verificam o repositório. No GitHub, Secret Scanning, Push
+Protection e atualizações de segurança do Dependabot permanecem habilitados.
+O CodeQL ignora apenas `legacy/**`, que é preservado como material histórico e
+não integra nenhuma unidade executável.
 
 ## Estratégia de testes
 
 Testes de regressão cobrem o Compose, o `.env.example`, a higiene do legado e
-os protocolos aceitos por URLs administrativas. `npm run security:check`,
-`npm run check` e `npm run test:e2e` formam o gate de publicação.
+os protocolos aceitos por URLs administrativas, o rate limiting da sessão e o
+escopo ativo do CodeQL. `npm run security:check`, `npm run check` e
+`npm run test:e2e` formam o gate de publicação.
 
 ## Limites
 

@@ -54,3 +54,16 @@ describe("legado seguro para consulta pública", () => {
     expect(legacy).not.toContain('VALUES ("${nome_empresa}"');
   });
 });
+
+describe("escopo do CodeQL", () => {
+  it("analisa a aplicação e exclui somente o legado não executável", async () => {
+    const [workflow, config] = await Promise.all([
+      readRepositoryFile(".github/workflows/codeql.yml"),
+      readRepositoryFile(".github/codeql-config.yml"),
+    ]);
+
+    expect(workflow).toContain("config-file: ./.github/codeql-config.yml");
+    expect(config).toContain("paths-ignore:");
+    expect(config).toContain('"legacy/**"');
+  });
+});
