@@ -1,0 +1,9 @@
+process.env.NODE_ENV = "test";
+process.env.JWT_SECRET = "test-secret-with-at-least-32-characters";
+process.env.ADMIN_EMAIL = "admin@hiddenroute.local";
+process.env.ADMIN_PASSWORD = "test-password";
+process.env.DB_HOST = process.env.DB_HOST || "127.0.0.1";
+process.env.DB_PORT = process.env.DB_PORT || "3306";
+process.env.DB_NAME = process.env.DB_NAME || "hidden_route";
+process.env.DB_USER = process.env.DB_USER || "hidden_route";
+process.env.DB_PASSWORD = process.env.DB_PASSWORD || "hidden_route_local";

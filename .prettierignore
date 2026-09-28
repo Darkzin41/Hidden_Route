@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+playwright-report
+test-results
+legacy
+apps/api/uploads
+package-lock.json

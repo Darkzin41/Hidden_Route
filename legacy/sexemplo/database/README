@@ -1,0 +1,14 @@
+docker build -t mysql_aula .
+docker run -d -p 127.0.0.1:3306:3306 --name mysql_aula -e MYSQL_ROOT_PASSWORD -e MYSQL_USER -e MYSQL_PASSWORD -e MYSQL_DATABASE mysql_aula
+
+-- CREATE DATABASE myapp;
+USE mydatabase;
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    login VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+-- Não use credenciais fixas. Configure usuários e senhas no ambiente local.

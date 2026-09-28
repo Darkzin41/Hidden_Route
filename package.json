@@ -1,0 +1,42 @@
+{
+  "name": "hidden-route",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others-on-fail --names API,WEB --prefix-colors cyan,magenta \"npm run dev -w @hidden-route/api\" \"npm run dev -w @hidden-route/web\"",
+    "build": "npm run build -w @hidden-route/web && npm run build -w @hidden-route/api",
+    "start": "cross-env NODE_ENV=production npm run start -w @hidden-route/api",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test --workspaces --if-present",
+    "test:e2e": "playwright test",
+    "security:check": "npm audit --audit-level=low",
+    "specs:check": "python scripts/validate_specs.py .",
+    "check": "npm run format:check && npm run lint && npm run specs:check && npm test && npm run build",
+    "db:up": "docker compose --env-file .env -f database/compose.yml up -d",
+    "db:down": "docker compose --env-file .env -f database/compose.yml down",
+    "db:migrate": "npm run db:migrate -w @hidden-route/api",
+    "db:seed": "npm run db:seed -w @hidden-route/api",
+    "assets:prepare": "node scripts/prepare-assets.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@playwright/test": "^1.55.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.35.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2"
+  }
+}

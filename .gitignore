@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.*
+!.env.example
+apps/api/uploads/*
+!apps/api/uploads/.gitkeep
+database/data/
+*.log
+.eslintcache
+*.tsbuildinfo
+.DS_Store
+Thumbs.db

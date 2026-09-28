@@ -1,0 +1,86 @@
+CREATE TABLE IF NOT EXISTS schema_migrations (
+  name VARCHAR(255) PRIMARY KEY,
+  applied_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS admins (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(180) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS beaches (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(140) NOT NULL UNIQUE,
+  name VARCHAR(120) NOT NULL,
+  location VARCHAR(180) NOT NULL,
+  summary VARCHAR(300) NOT NULL,
+  description TEXT NOT NULL,
+  hero_image VARCHAR(500) NULL,
+  map_url VARCHAR(500) NULL,
+  status ENUM('draft', 'published', 'archived') NOT NULL DEFAULT 'draft',
+  featured BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_beaches_public (status, featured, name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS beach_images (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  beach_id INT UNSIGNED NOT NULL,
+  image_path VARCHAR(500) NOT NULL,
+  alt_text VARCHAR(220) NOT NULL,
+  sort_order INT UNSIGNED NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_beach_images_beach FOREIGN KEY (beach_id) REFERENCES beaches(id) ON DELETE CASCADE,
+  INDEX idx_beach_images_order (beach_id, sort_order)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS partners (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  beach_id INT UNSIGNED NOT NULL,
+  name VARCHAR(140) NOT NULL,
+  category ENUM('restaurant', 'inn', 'kiosk', 'tour', 'other') NOT NULL DEFAULT 'other',
+  description TEXT NOT NULL,
+  image VARCHAR(500) NULL,
+  address VARCHAR(250) NULL,
+  phone VARCHAR(40) NULL,
+  whatsapp_url VARCHAR(500) NULL,
+  instagram_url VARCHAR(500) NULL,
+  website_url VARCHAR(500) NULL,
+  map_url VARCHAR(500) NULL,
+  status ENUM('draft', 'published', 'archived') NOT NULL DEFAULT 'draft',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_partners_beach FOREIGN KEY (beach_id) REFERENCES beaches(id) ON DELETE RESTRICT,
+  UNIQUE KEY uq_partner_beach_name (beach_id, name),
+  INDEX idx_partners_public (beach_id, status, name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS reviews (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  beach_id INT UNSIGNED NOT NULL,
+  author_name VARCHAR(100) NOT NULL,
+  rating TINYINT UNSIGNED NOT NULL,
+  comment VARCHAR(1200) NOT NULL,
+  status ENUM('pending', 'approved', 'rejected') NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT chk_reviews_rating CHECK (rating BETWEEN 1 AND 5),
+  CONSTRAINT fk_reviews_beach FOREIGN KEY (beach_id) REFERENCES beaches(id) ON DELETE RESTRICT,
+  INDEX idx_reviews_public (beach_id, status, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  message VARCHAR(2000) NOT NULL,
+  status ENUM('new', 'read', 'archived') NOT NULL DEFAULT 'new',
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_contact_messages_status (status, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

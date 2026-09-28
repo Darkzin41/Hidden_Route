@@ -1,0 +1,35 @@
+{
+  "name": "@hidden-route/api",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch src --watch ../../database/migrations --ext js,json,sql src/server.js",
+    "start": "node src/server.js",
+    "build": "node scripts/copy-web.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:migrate": "node src/database/migrate.js",
+    "db:seed": "node src/database/seed.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.5",
+    "pino-http": "^10.5.0",
+    "react-router-dom": "^7.18.4",
+    "sharp": "^0.35.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4",
+    "vitest": "^5.0.2"
+  }
+}
