@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import { env } from "../src/config/env.js";
 import { createPool } from "../src/database/pool.js";
 import { createAdminRepository } from "../src/modules/admin/admin-repository.js";
 import { createAuthRepository } from "../src/modules/auth/auth-repository.js";
@@ -92,9 +93,7 @@ describe("repositórios MySQL", () => {
   });
 
   it("encontra o administrador sem expor a senha nas listagens públicas", async () => {
-    const administrator = await auth.findAdminByEmail(
-      "admin@hiddenroute.local",
-    );
+    const administrator = await auth.findAdminByEmail(env.ADMIN_EMAIL);
     const beaches = await catalog.listPublicBeaches({ search: "" });
 
     expect(administrator.passwordHash).toMatch(/^\$2[aby]\$/);

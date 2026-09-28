@@ -1,6 +1,6 @@
 # Estratégia e mapa de testes
 
-**Última verificação:** 2026-09-27
+**Última verificação:** 2026-09-28
 
 ## Gates locais
 
@@ -24,7 +24,7 @@ O skip E2E é intencional: o fluxo administrativo completo roda no projeto deskt
 | Formulários, autenticação e rotas                        | `apps/web/src/**/*.test.jsx`                                                               |
 | Envelopes, validação, sessão, CRUD, moderação e upload   | `apps/api/tests/api-contract.test.js`                                                      |
 | Migration e seed                                         | `apps/api/tests/migrations.test.js` e `seed-data.test.js`                                  |
-| Persistência e visibilidade de estados                   | `apps/api/tests/repositories.integration.test.js` contra MySQL, com transações reversíveis |
+| Persistência, estados e admin configurado por ambiente   | `apps/api/tests/repositories.integration.test.js` contra MySQL, com transações reversíveis |
 | Processamento de imagens                                 | `apps/api/tests/upload-service.test.js`                                                    |
 | Compose local, `.env.example` e higiene do legado        | `apps/api/tests/security-config.test.js`                                                   |
 | Protocolos seguros em links administrativos              | `apps/api/tests/admin-schemas.test.js`                                                     |
